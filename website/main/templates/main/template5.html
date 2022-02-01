@@ -31,13 +31,15 @@
   <tbody>
   {% for el in di %}
     <tr>
-      <th>Название</th>
+      <th>id</th>
+        <th>Название</th>
       <th>Дислокация</th>
       <th>Вид войск</th>
         <th>Роты</th>
     </tr>
     <tr>
-      <td>{{el.country}}</td>
+      <td>{{el.id}}</td>
+        <td>{{el.country}}</td>
       <td>{{el.city}}</td>
           <a href="{% url 'details_view5' el.id %}" class="btn btn-warning">Детальнее</a>
       <td>{{el.address}}</td>

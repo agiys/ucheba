@@ -3,6 +3,7 @@ from .forms import *
 from .models import *
 from django.views.generic import DetailView, UpdateView, DeleteView
 
+
 class NewsUpdateView(UpdateView):
     model = Military
     template_name = 'main/create.html'
@@ -15,7 +16,7 @@ class NewsDeleteView(DeleteView):
     template_name = 'main/delete.html'
 
 class NewsDeleteView2(DeleteView):
-    model = Type_troops
+    model = Type_troop
     success_url='/type_troops'
     template_name = 'main/delete.html'
 
@@ -30,13 +31,13 @@ class NewsDeleteView4(DeleteView):
     template_name = 'main/delete.html'
 
 class NewsDeleteView5(DeleteView):
-    model = Dislocation
+    model = Dislocatio
     success_url='/dislocation'
     template_name = 'main/delete.html'
 
 
 class NewsUpdateView2(UpdateView):
-    model = Type_troops
+    model = Type_troop
     template_name = 'main/create2.html'
 
     fields = ['title']
@@ -60,7 +61,7 @@ class NewsUpdateView4(UpdateView):
 
 
 class NewsUpdateView5(UpdateView):
-    model = Dislocation
+    model = Dislocatio
     template_name = 'main/create5.html'
 
     fields = ['country','city','address','squar']
@@ -75,7 +76,7 @@ class NewsDetailView(DetailView):
     context_object_name = 'military'
 
 class NewsDetailView2(DetailView):
-    model = Type_troops
+    model = Type_troop
     template_name = 'main/details_view2.html'
     context_object_name = 'type_troops'
 
@@ -90,7 +91,7 @@ class NewsDetailView4(DetailView):
     context_object_name = 'employees'
 
 class NewsDetailView5(DetailView):
-    model = Dislocation
+    model = Dislocatio
     template_name = 'main/details_view5.html'
     context_object_name = 'dislocation'
 
@@ -103,7 +104,7 @@ def military(request):
     return render(request, 'main/template1.html',{'me':me})
 
 def type_troops(request):
-    ty = Type_troops.objects.all()
+    ty = Type_troop.objects.all()
     return render(request, 'main/template2.html',{'ty':ty})
 
 def companies(request):
@@ -115,7 +116,7 @@ def employees(request):
     return render(request, 'main/template4.html',{'em':em})
 
 def dislocation(request):
-    di=Dislocation.objects.all()
+    di=Dislocatio.objects.all()
     return render(request, 'main/template5.html',{'di':di})
 
 def create(request):

@@ -31,12 +31,14 @@
   <tbody>
   {% for el in co %}
     <tr>
+        <th>id</th>
       <th>Название</th>
       <th>Количество</th>
     </tr>
     <tr>
         <a href="{% url 'details_view3' el.id %}" class="btn btn-warning">Детальнее</a>
-      <td>{{el.title}}</td>
+      <td>{{el.id}}</td>
+        <td>{{el.title}}</td>
       <td>{{el.number_employees}}</td>
     </tr>
   {% endfor %}

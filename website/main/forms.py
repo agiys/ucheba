@@ -2,6 +2,9 @@ from .models import *
 from django.forms import ModelForm, TextInput, DateTimeInput
 
 
+
+
+
 class MilitaryForm(ModelForm):
     class Meta:
         model = Military
@@ -28,7 +31,7 @@ class MilitaryForm(ModelForm):
 
 class Type_troopsForm(ModelForm):
     class Meta:
-        model = Type_troops
+        model = Type_troop
         fields = {'title' }
 
         widgets= {
@@ -99,7 +102,7 @@ class EmployeesForm(ModelForm):
 
 class DislocationForm(ModelForm):
     class Meta:
-        model = Dislocation
+        model = Dislocatio
         fields = {'country','city','address','squar' }
 
         widgets= {

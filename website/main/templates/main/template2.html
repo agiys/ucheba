@@ -27,21 +27,21 @@
         <a href="{% url 'create2' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Добавить</button>
         </li></a>
       </nav>
-
-	<div class="table">
-
-      <h1>Название </h1>
-        {% if ty %}
-    {% for el in ty %}
-        <a href="{% url 'details_view2' el.id %}" class="btn btn-warning">Детальнее</a>
-        <div class="alert alert-warning">
-      <h1> {{ el.title }} </h1>
-        </div>
-        {% endfor %}
-        {%else %}
-        <p>У вас нет записей</p>
-        {% endif %}
-        </div>
+	<table class="table">
+  <tbody>
+  {% for el in ty %}
+    <tr>
+      <th>id</th>
+      <th>Название</th>
+    </tr>
+    <tr>
+        <a href="{% url 'details_view3' el.id %}" class="btn btn-warning">Детальнее</a>
+      <td>{{el.id}}</td>
+      <td>{{el.title}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
 <style type="text/css">
 .table {
 	width: 100%;

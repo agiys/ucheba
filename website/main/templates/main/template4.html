@@ -32,7 +32,8 @@
   <tbody>
   {% for el in em %}
     <tr>
-      <th>Фамилия</th>
+        <th>id</th>
+        <th>Фамилия</th>
       <th>Рота</th>
       <th>Должность</th>
         <th>Год рождения</th>
@@ -40,9 +41,11 @@
       <th>Выслуга</th>
       <th>Награды</th>
         <th>Участие</th>
+        <th>idcompanies</th>
     </tr>
     <tr>
-      <td>{{el.fist_name}}</td>
+      <td>{{el.id}}</td>
+        <td>{{el.fist_name}}</td>
       <td>{{el.companies}}</td>
       <td>{{el.post}}</td>
         <td>{{el.year_birth}}</td>
@@ -50,6 +53,7 @@
       <td>{{el.length_service}}</td>
         <td>{{el.honors}}</td>
 		<td>{{el.military_activies}}</td>
+        <td>{{el.compain}}</td>
     </tr>
   <a href="{% url 'details_view4' el.id %}" class="btn btn-warning">Детальнее</a>
   {% endfor %}

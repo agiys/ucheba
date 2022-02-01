@@ -13,7 +13,7 @@
     <h1> Добавление </h1>
     <form method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.title }}
         <button class="btn btn-success" type="submit">Добавить</button>
     </form>
 </div>

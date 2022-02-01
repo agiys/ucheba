@@ -1,10 +1,15 @@
 from django.db import models
 
+
+
 class Military(models.Model):
+
+    id = models.AutoField(primary_key=True)
     number = models.CharField('Номер', max_length=45)
     dislocation= models.CharField('Дислокация', max_length=45)
     type_troops=models.CharField('Вид войск', max_length=45)
     companies=models.CharField('Роты', max_length=45)
+
 
     def __str__(self):
         return self.number
@@ -16,8 +21,10 @@ class Military(models.Model):
         verbose_name = 'Военная часть'
         verbose_name_plural= 'Военные части'
 
-class Type_troops(models.Model):
+class Type_troop(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField('Номер', max_length=45)
+    military = models.ForeignKey(Military, on_delete=models.CASCADE, null=True)
 
     def get_absolute_url(self):
         return f'/type_troops/{self.id}'
@@ -28,8 +35,11 @@ class Type_troops(models.Model):
 
 
 class Companies(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField('Название', max_length=45)
     number_employees = models.CharField('Номер', max_length=45)
+    type_troops = models.ForeignKey(Type_troop, on_delete=models.CASCADE, null=True)
+
 
     def __str__(self):
         return self.title
@@ -43,6 +53,7 @@ class Companies(models.Model):
 
 
 class Employees(models.Model):
+    id = models.AutoField(primary_key=True)
     fist_name = models.CharField('Имя', max_length=45)
     companies = models.CharField('Рота', max_length=45)
     post = models.CharField('Название', max_length=45)
@@ -51,6 +62,7 @@ class Employees(models.Model):
     length_service = models.CharField('Название', max_length=45)
     honors = models.CharField('Название', max_length=45)
     military_activies= models.CharField('Название', max_length=45)
+    compain=models.ForeignKey(Companies,on_delete=models.CASCADE,null=True)
 
 
     def __str__(self):
@@ -64,12 +76,13 @@ class Employees(models.Model):
         verbose_name_plural = 'Личный состав'
 
 
-class Dislocation(models.Model):
+class Dislocatio(models.Model):
+    id = models.AutoField(primary_key=True)
     country = models.CharField('Название', max_length=45)
     city = models.CharField('Название', max_length=45)
     address = models.CharField('Название', max_length=45)
     squar = models.CharField('Название', max_length=45)
-
+    military=models.OneToOneField(Military,on_delete=models.CASCADE,null=True)
     def __str__(self):
         return self.country
 
