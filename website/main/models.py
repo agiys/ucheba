@@ -25,7 +25,7 @@ class Type_troop(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField('Номер', max_length=45)
     military = models.ForeignKey(Military, on_delete=models.CASCADE, null=True)
-
+    
     def get_absolute_url(self):
         return f'/type_troops/{self.id}'
 

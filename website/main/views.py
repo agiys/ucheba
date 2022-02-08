@@ -134,7 +134,7 @@ def create(request):
        'form': form,
         'error':error
     }
-    return render(request, 'main/create.html',data)
+    return render(request, 'main/create.html', data)
 
 def create2(request):
     error=''
@@ -196,8 +196,7 @@ def create5(request):
             return redirect('dislocation')
         else:
             error="Форма была не верной"
-    form= DislocationForm()
-
+    form = DislocationForm()
     data= {
        'form': form,
         'error':error
