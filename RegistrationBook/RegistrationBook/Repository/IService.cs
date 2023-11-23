@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistrationBook.Data
+namespace RegistrationBook.Repository
 {
     public interface IService
     {

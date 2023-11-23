@@ -18,6 +18,8 @@ using System.Windows;
 using System.Configuration;
 using System.Reflection;
 using System.Xml;
+using RegistrationBook.Repository;
+using RegistrationBook.View;
 
 namespace RegistrationBook.ViewModels
 {
@@ -26,28 +28,37 @@ namespace RegistrationBook.ViewModels
     {
         public event EventHandler<string> ErrorOccurred;
         private readonly IService service;
-        //private Autofac.IContainer container;
+        private Autofac.IContainer _container;
+        private readonly IWindowService _windowService;
 
         private BindingList<Client> _clients;
         //private readonly string path = $"{Environment.CurrentDirectory}\\clients.json";
         
-        public MainWindowViewModel(IService service)
+        public MainWindowViewModel(IService service, IWindowService windowService, Autofac.IContainer container)
         {
             this.service = service;
+            _container = container;
+            _windowService = windowService;
             RefreshCommand = new RelayCommand(Refresh);
             Clients = new BindingList<Client>();
             Clients.ListChanged += Clients_ListChanged;
             DeleteCommand = new RelayCommand(DeleteSelectedClient);
+            OpenRecord = new RelayCommand(OnOpenRecord);
 
         }
 
-        public MainWindowViewModel()
+        private void OnOpenRecord()
         {
+            var recordViewModel = _container.Resolve<RecordViewModel>();
+            var recordWindow = _container.Resolve<RecordWindow>();
+            recordWindow.DataContext = recordViewModel;
+            recordWindow.ShowDialog();
         }
 
         public ICommand DeleteCommand { get; set; }
         public ICommand RefreshCommand { get; }
         public ICommand OpenCommand { get; }
+        public ICommand OpenRecord { get; }
 
         public BindingList<Client> Clients
         {
@@ -66,6 +77,9 @@ namespace RegistrationBook.ViewModels
             //var container = startup.ConfigureIoC();
             //var service1 = container.Resolve<IService>(); // любое другое окно
             //service1.SaveClients();
+            //var window = container.Resolve<MainWindow>();
+            //var windowviewmodel = container.Resolve<MainWindowViewModel>();
+            //window.DataContext = windowviewmodel;
             if (e.ListChangedType == ListChangedType.ItemAdded || e.ListChangedType == ListChangedType.ItemChanged || e.ListChangedType == ListChangedType.ItemDeleted)
             {
                 if (e.ListChangedType == ListChangedType.ItemAdded)

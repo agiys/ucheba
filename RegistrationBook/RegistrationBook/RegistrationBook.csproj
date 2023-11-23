@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\IRecordFactory.cs" />
+    <Compile Remove="Data\RecordViewModelFactory.cs" />
     <Compile Remove="ViewModels\EnterWindowViewModel.cs" />
     <Compile Remove="View\EnterWindow.xaml.cs" />
   </ItemGroup>

@@ -40,5 +40,6 @@
                 <DataGridCheckBoxColumn Header="Явка" Binding="{Binding Turnout,UpdateSourceTrigger=PropertyChanged}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Открыть" HorizontalAlignment="Left" Margin="123,282,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding OpenRecord}"/>
     </Grid>
 </Window>

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RegistrationBook.Data
+namespace RegistrationBook.Repository
 {
     class AppService : IService
     {
@@ -18,7 +18,7 @@ namespace RegistrationBook.Data
         public BindingList<Client> GetClients()
         {
             var fileExists = File.Exists(PATH);
-            if(!fileExists)
+            if (!fileExists)
             {
                 File.CreateText(PATH).Dispose();
                 return new BindingList<Client>();

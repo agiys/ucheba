@@ -42,3 +42,5 @@ C:\Users\Chupapimunyanya\source\repos\RegistrationBook\RegistrationBook\bin\Debu
 C:\Users\Chupapimunyanya\source\repos\RegistrationBook\RegistrationBook\bin\Debug\net7.0-windows\ru-RU\MaterialDesignExtensions.resources.dll
 C:\Users\Chupapimunyanya\source\repos\RegistrationBook\RegistrationBook\bin\Debug\net7.0-windows\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
 C:\Users\Chupapimunyanya\source\repos\RegistrationBook\RegistrationBook\obj\Debug\net7.0-windows\App.baml
+C:\Users\Chupapimunyanya\source\repos\RegistrationBook\RegistrationBook\obj\Debug\net7.0-windows\View\RecordWindow.g.cs
+C:\Users\Chupapimunyanya\source\repos\RegistrationBook\RegistrationBook\obj\Debug\net7.0-windows\View\RecordWindow.baml
