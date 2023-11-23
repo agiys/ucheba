@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RegistrationBook.ViewModels
 {
-    public class RecordViewModel : IDisposable
+    public class RecordViewModel
     {
 
         public RecordViewModel()
@@ -14,9 +14,5 @@ namespace RegistrationBook.ViewModels
 
         }
 
-        public void Dispose()
-        {
-            Dispose();
-        }
     }
 }
