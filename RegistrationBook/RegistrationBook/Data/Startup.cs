@@ -20,8 +20,8 @@ namespace RegistrationBook.Data
 
             // Регистрация зависимостей
             builder.RegisterType<AppService>().As<IService>().SingleInstance();
-            builder.RegisterType<WindowService>().As<IWindowService>(); // Регистрируем WindowService как IWindowService
-            builder.RegisterType<MainWindow>().AsSelf();
+            /*builder.RegisterType<WindowService>().As<IWindowService>();*/ // Регистрируем WindowService как IWindowService
+            builder.RegisterType<MainWindow>().AsSelf().SingleInstance();
             //builder.RegisterType<RecordViewModelFactory>().As<IRecordFactory>();
             builder.RegisterType<MainWindowViewModel>().AsSelf().SingleInstance();
             builder.RegisterType<RecordViewModel>().AsSelf().SingleInstance();

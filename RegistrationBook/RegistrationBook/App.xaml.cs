@@ -29,8 +29,7 @@ namespace RegistrationBook
             var container = startup.ConfigureIoC();
 
             // Создаем экземпляр MainWindowViewModel из контейнера
-            var mainWindowViewModel = container.Resolve<MainWindowViewModel>(
-                new TypedParameter(typeof(Autofac.IContainer), container));
+            var mainWindowViewModel = container.Resolve<MainWindowViewModel>();
 
             // Создаем экземпляр MainWindow, устанавливая DataContext в MainWindowViewModel
             var mainWindow = new MainWindow { DataContext = mainWindowViewModel };

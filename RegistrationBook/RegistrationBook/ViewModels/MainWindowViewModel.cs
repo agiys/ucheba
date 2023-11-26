@@ -28,17 +28,17 @@ namespace RegistrationBook.ViewModels
     {
         public event EventHandler<string> ErrorOccurred;
         private readonly IService service;
-        private Autofac.IContainer _container;
-        private readonly IWindowService _windowService;
+        private readonly RecordViewModel recordViewModel;
+        private readonly RecordWindow recordWindow;
 
         private BindingList<Client> _clients;
         //private readonly string path = $"{Environment.CurrentDirectory}\\clients.json";
         
-        public MainWindowViewModel(IService service, IWindowService windowService, Autofac.IContainer container)
+        public MainWindowViewModel(IService service, RecordViewModel recordViewModel, RecordWindow recordWindow)
         {
             this.service = service;
-            _container = container;
-            _windowService = windowService;
+            this.recordViewModel = recordViewModel;
+            this.recordWindow = recordWindow;
             RefreshCommand = new RelayCommand(Refresh);
             Clients = new BindingList<Client>();
             Clients.ListChanged += Clients_ListChanged;
@@ -49,8 +49,6 @@ namespace RegistrationBook.ViewModels
 
         private void OnOpenRecord()
         {
-            var recordViewModel = _container.Resolve<RecordViewModel>();
-            var recordWindow = _container.Resolve<RecordWindow>();
             recordWindow.DataContext = recordViewModel;
             recordWindow.ShowDialog();
         }
@@ -97,6 +95,7 @@ namespace RegistrationBook.ViewModels
                 try
                 {
                     service.SaveClients(sender);
+                    
                 }
                 catch (Exception ex)
                 {
